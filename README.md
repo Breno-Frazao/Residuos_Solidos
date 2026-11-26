@@ -13,7 +13,7 @@
 
 ## UML 
 
-![MERDER](./images/der_residuos.png)
+![UML](./images/UML.drawio.png)
 
 ---
 
