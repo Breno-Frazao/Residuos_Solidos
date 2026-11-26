@@ -5,12 +5,12 @@ const cadastrar = async ({ nome, email, senha }) => {
         "INSERT INTO usuario VALUES (DEFAULT, ?, ?, ?);",
         [nome, email, senha]
     );
-    return { id: resultado.insertId, nome, email };
+    return { id: resultado.insertId, nome, email, senha };
 };
 
 const listar = async () => {
     const [resultado] = await con.query(
-        "SELECT id, nome, email FROM usuario;"
+        "SELECT id, nome, email, senha FROM usuario;"
     );
     return resultado;
 };
@@ -33,7 +33,7 @@ const excluir = async (id) => {
 
 const login = async (email, senha) => {
     const [resultado] = await con.query(
-        "SELECT id, nome, email FROM usuario WHERE email = ? AND senha = ?",
+        "SELECT id, nome, email, senha FROM usuario WHERE email = ? AND senha = ?",
         [email, senha]
     );
     return resultado;
